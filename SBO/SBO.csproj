@@ -181,6 +181,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\TrailerOnline\Controllers\HomeController.cs" />
+    <Compile Include="Areas\TrailerOnline\TrailerOnlineAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -247,6 +249,10 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Areas\TrailerOnline\Views\Web.config" />
+    <Content Include="Areas\TrailerOnline\Views\Shared\_Layout1.cshtml" />
+    <Content Include="Areas\TrailerOnline\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\TrailerOnline\Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -304,6 +310,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\TrailerOnline\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
