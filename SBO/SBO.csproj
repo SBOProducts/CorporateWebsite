@@ -181,10 +181,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\ContractorOnline\ContractorOnlineAreaRegistration.cs" />
+    <Compile Include="Areas\ContractorOnline\Controllers\HomeController.cs" />
     <Compile Include="Areas\TrailerOnline\Controllers\HomeController.cs" />
     <Compile Include="Areas\TrailerOnline\TrailerOnlineAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Core\SBOUser.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -253,6 +256,8 @@
     <Content Include="Areas\TrailerOnline\Views\Shared\_Layout1.cshtml" />
     <Content Include="Areas\TrailerOnline\Views\_ViewStart.cshtml" />
     <Content Include="Areas\TrailerOnline\Views\Home\Index.cshtml" />
+    <Content Include="Areas\ContractorOnline\Views\Web.config" />
+    <Content Include="Areas\ContractorOnline\Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -310,6 +315,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\ContractorOnline\Models\" />
+    <Folder Include="Areas\ContractorOnline\Views\Shared\" />
     <Folder Include="Areas\TrailerOnline\Models\" />
   </ItemGroup>
   <ItemGroup>

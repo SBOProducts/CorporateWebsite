@@ -9,9 +9,8 @@ namespace SBO.Areas.TrailerOnline.Controllers
     public class HomeController : Controller
     {
 
-        public ActionResult Index(string Customer)
+        public ActionResult Index()
         {
-            ViewBag.Customer = Customer;
             return View();
         }
 
