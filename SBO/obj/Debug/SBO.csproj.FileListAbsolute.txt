@@ -168,3 +168,7 @@ C:\Users\Nathan\Documents\GitHub\CorporateWebsite\SRC\SBO\bin\ko\System.Spatial.
 C:\Users\Nathan\Documents\GitHub\CorporateWebsite\SRC\SBO\bin\ru\System.Spatial.resources.dll
 C:\Users\Nathan\Documents\GitHub\CorporateWebsite\SRC\SBO\bin\zh-Hans\System.Spatial.resources.dll
 C:\Users\Nathan\Documents\GitHub\CorporateWebsite\SRC\SBO\bin\zh-Hant\System.Spatial.resources.dll
+C:\Users\Nathan\Documents\GitHub\CorporateWebsite\SRC\SBO\bin\SBO.BLL.dll
+C:\Users\Nathan\Documents\GitHub\CorporateWebsite\SRC\SBO\bin\SBO.DAL.dll
+C:\Users\Nathan\Documents\GitHub\CorporateWebsite\SRC\SBO\bin\SBO.BLL.pdb
+C:\Users\Nathan\Documents\GitHub\CorporateWebsite\SRC\SBO\bin\SBO.DAL.pdb
