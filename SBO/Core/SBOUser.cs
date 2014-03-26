@@ -16,8 +16,15 @@ namespace SBO.Core
         {
             get
             {
-                object value = HttpContext.Current.Request.RequestContext.RouteData.Values["customer"];
-                return value == null ? "" : value.ToString();
+                try
+                {
+                    object value = HttpContext.Current.Request.RequestContext.RouteData.Values["customer"];
+                    return value == null ? "" : value.ToString();
+                }
+                catch
+                {
+                    return string.Empty;
+                }
             }
         }
 

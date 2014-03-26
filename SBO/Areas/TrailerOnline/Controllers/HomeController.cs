@@ -11,6 +11,7 @@ namespace SBO.Areas.TrailerOnline.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.CustomerId = SBO.Core.SBOUser.CustomerId;
             return View();
         }
 
