@@ -185,6 +185,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\TrailerOnline\Controllers\HomeController.cs" />
     <Compile Include="Areas\TrailerOnline\TrailerOnlineAreaRegistration.cs" />
+    <Compile Include="Areas\Website\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Website\WebsiteAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Core\SBOUser.cs" />
     <Compile Include="Global.asax.cs">
@@ -240,6 +242,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\TrailerOnline\Models\" />
+    <Folder Include="Areas\Website\Models\" />
     <Folder Include="Filters\" />
     <Folder Include="Images\" />
     <Folder Include="Models\" />
@@ -251,7 +254,19 @@
     <Content Include="App_Readme\Foundation_readme.md" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_SiteActions.cshtml" />
+    <Content Include="Areas\Website\Views\Shared\_SiteActions.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Website\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Website\Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Website\Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Website\Views\Home\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

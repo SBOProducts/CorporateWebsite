@@ -38,6 +38,8 @@
                     padding-left:20px;
                 }
 
-.ExpandableMenu a.closed:before {
-    content: "+ ";
+
+
+.ExpandableMenu a.closed {
+    background-image: url('~/content/sbo/images/icon-collapse.gif');
 }

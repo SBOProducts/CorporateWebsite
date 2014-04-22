@@ -18,7 +18,10 @@
 <body>
 
     <div class="row">
-        <div class="small-12 columns">
+        <div id="SiteActions" class="small-2 columns">
+            @Html.Partial("_SiteActions")
+        </div>
+        <div class="small-10 columns">
             @RenderBody()
         </div>
     </div>
