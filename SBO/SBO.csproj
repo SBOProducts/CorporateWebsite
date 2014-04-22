@@ -178,6 +178,7 @@
   <ItemGroup>
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\Bundles\Foundation.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -191,13 +192,34 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\foundation\foundation.css" />
+    <Content Include="Content\foundation\foundation.mvc.css" />
+    <Content Include="Content\foundation\normalize.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Areas\TrailerOnline\Views\Web.config" />
     <Content Include="Areas\TrailerOnline\Views\Shared\_Layout1.cshtml" />
     <Content Include="Areas\TrailerOnline\Views\_ViewStart.cshtml" />
     <Content Include="Areas\TrailerOnline\Views\Home\Index.cshtml" />
-    <Content Include="Images\Deloit Flyer.JPG" />
+    <Content Include="Scripts\foundation\fastclick.js" />
+    <Content Include="Scripts\foundation\foundation.abide.js" />
+    <Content Include="Scripts\foundation\foundation.accordion.js" />
+    <Content Include="Scripts\foundation\foundation.alert.js" />
+    <Content Include="Scripts\foundation\foundation.clearing.js" />
+    <Content Include="Scripts\foundation\foundation.dropdown.js" />
+    <Content Include="Scripts\foundation\foundation.equalizer.js" />
+    <Content Include="Scripts\foundation\foundation.interchange.js" />
+    <Content Include="Scripts\foundation\foundation.joyride.js" />
+    <Content Include="Scripts\foundation\foundation.js" />
+    <Content Include="Scripts\foundation\foundation.magellan.js" />
+    <Content Include="Scripts\foundation\foundation.offcanvas.js" />
+    <Content Include="Scripts\foundation\foundation.orbit.js" />
+    <Content Include="Scripts\foundation\foundation.reveal.js" />
+    <Content Include="Scripts\foundation\foundation.slider.js" />
+    <Content Include="Scripts\foundation\foundation.tab.js" />
+    <Content Include="Scripts\foundation\foundation.tooltip.js" />
+    <Content Include="Scripts\foundation\foundation.topbar.js" />
+    <Content Include="Scripts\foundation\jquery.cookie.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -205,7 +227,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\Admin.css" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
@@ -217,11 +239,17 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\TrailerOnline\Models\" />
     <Folder Include="Filters\" />
+    <Folder Include="Images\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Readme\Foundation_readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_SiteActions.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
