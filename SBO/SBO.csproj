@@ -179,6 +179,7 @@
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\Bundles\Foundation.cs" />
+    <Compile Include="App_Start\Bundles\SBOBundles.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -220,6 +221,7 @@
     <Content Include="Scripts\foundation\foundation.tooltip.js" />
     <Content Include="Scripts\foundation\foundation.topbar.js" />
     <Content Include="Scripts\foundation\jquery.cookie.js" />
+    <Content Include="Scripts\sbo\navigation.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -2,5 +2,42 @@
 
 #SiteActions
 {
-    background-color:#808080;
+    border:1px solid #ccc;
+    padding:0;
+}
+
+    #SiteActions ul {
+        margin:0;
+    }
+
+        #SiteActions ul li {
+            list-style:none;
+            border:1px solid #333333;
+        }
+
+            #SiteActions ul li a {
+                display:block;
+                background-color:#3D3D3D;
+                padding:2px 10px;
+                color:#999999;
+            }
+
+            #SiteActions ul li a:hover {
+                background-color:#242424;
+                color:#ccc;
+            }
+
+            #SiteActions ul li ul
+            {
+                display: none;
+            }
+
+                #SiteActions ul li ul a {
+                    color:#aaa;
+                    background-color:#4D4D4D;
+                    padding-left:20px;
+                }
+
+.ExpandableMenu a.closed:before {
+    content: "+ ";
 }
