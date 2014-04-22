@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Web
+# Visual Studio Express 2013 for Web
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SBO", "SBO\SBO.csproj", "{68925B78-5A6C-4327-91A4-AB19F14722AC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SBO.Tests", "SBO.Tests\SBO.Tests.csproj", "{11B94CF9-9085-4B44-813E-8F3C8F9F8608}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{D3EDEBF5-BDCF-43B5-842F-F54382C91222}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{0F96FA30-4CD0-4A32-B94A-0A56E4EDE857}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,14 +21,6 @@ Global
 		{11B94CF9-9085-4B44-813E-8F3C8F9F8608}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11B94CF9-9085-4B44-813E-8F3C8F9F8608}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11B94CF9-9085-4B44-813E-8F3C8F9F8608}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D3EDEBF5-BDCF-43B5-842F-F54382C91222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D3EDEBF5-BDCF-43B5-842F-F54382C91222}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D3EDEBF5-BDCF-43B5-842F-F54382C91222}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D3EDEBF5-BDCF-43B5-842F-F54382C91222}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0F96FA30-4CD0-4A32-B94A-0A56E4EDE857}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0F96FA30-4CD0-4A32-B94A-0A56E4EDE857}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0F96FA30-4CD0-4A32-B94A-0A56E4EDE857}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0F96FA30-4CD0-4A32-B94A-0A56E4EDE857}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

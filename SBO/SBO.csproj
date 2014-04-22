@@ -197,6 +197,7 @@
     <Content Include="Areas\TrailerOnline\Views\Shared\_Layout1.cshtml" />
     <Content Include="Areas\TrailerOnline\Views\_ViewStart.cshtml" />
     <Content Include="Areas\TrailerOnline\Views\Home\Index.cshtml" />
+    <Content Include="Images\Deloit Flyer.JPG" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -216,22 +217,11 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\TrailerOnline\Models\" />
     <Folder Include="Filters\" />
-    <Folder Include="Images\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BLL\BLL.csproj">
-      <Project>{0f96fa30-4cd0-4a32-b94a-0a56e4ede857}</Project>
-      <Name>BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{d3edebf5-bdcf-43b5-842f-f54382c91222}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
