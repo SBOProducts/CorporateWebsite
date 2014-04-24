@@ -4,14 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace SBO.Areas.TrailerOnline.Controllers
+namespace SBO.Areas.Website.Controllers
 {
-    public class HomeController : Controller
+    public class SiteController : Controller
     {
-
         public ActionResult Index()
         {
-            ViewBag.CustomerId = SBO.Core.SBOUser.CustomerId;
             return View();
         }
 

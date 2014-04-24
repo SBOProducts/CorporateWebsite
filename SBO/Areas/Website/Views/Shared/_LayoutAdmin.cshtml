@@ -13,21 +13,18 @@
     @Styles.Render("~/Content/sbo/css")
 
     @RenderSection("head", required: false)
-
+    @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
 
     <div class="row">
-        <div class="small-4 columns">
-            @Html.ActionLink("SBO Logo", "Index", "Home", new { area = "" }, new { id = "Logo" })
+        <div id="SiteActions" class="small-2 columns">
+            @Html.Partial("_SiteActions")
+
         </div>
-        <div class="small-8 columns">
-            links
-        </div>
-    </div>
-    <div class="row">
-        <div class="small-12 columns">
+        <div class="small-10 columns">
             @RenderBody()
+            @Url.Content("/Content/Admin.css")
         </div>
     </div>
 

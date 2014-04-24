@@ -9,8 +9,6 @@ namespace SBO
         public static void RegisterBundles(BundleCollection bundles)
         {
 
-
-
             #region Foundation Bundles
             bundles.Add(Foundation.Styles());
             bundles.Add(Foundation.Scripts());

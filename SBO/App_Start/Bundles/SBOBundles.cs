@@ -7,7 +7,7 @@ namespace SBO
         public static Bundle Styles()
         {
             return new StyleBundle("~/Content/sbo/css").Include(
-                       "~/Content/Admin.css"
+                       "~/Content/Site.css"
                        );
         }
 

@@ -1,3 +1,9 @@
 ﻿@{
-    Layout = "~/Areas/Website/Views/Shared/_Layout.cshtml";
+    if (User.Identity.IsAuthenticated) { 
+        Layout = "~/Areas/Website/Views/Shared/_LayoutAdmin.cshtml";
+    }
+    else
+    {
+        Layout = "~/Areas/Website/Views/Shared/_LayoutWebsite.cshtml";
+    }
 }
