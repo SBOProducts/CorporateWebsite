@@ -254,3 +254,7 @@ C:\Users\cb0290\Documents\GitHub\CorporateWebsite\SBO\bin\zh-Hant\System.Spatial
 C:\Users\cb0290\Documents\GitHub\CorporateWebsite\SBO\obj\Debug\SBO.csprojResolveAssemblyReference.cache
 C:\Users\cb0290\Documents\GitHub\CorporateWebsite\SBO\obj\Debug\SBO.dll
 C:\Users\cb0290\Documents\GitHub\CorporateWebsite\SBO\obj\Debug\SBO.pdb
+C:\Users\cb0290\Documents\GitHub\CorporateWebsite\SBO\bin\SBO.BLL.dll
+C:\Users\cb0290\Documents\GitHub\CorporateWebsite\SBO\bin\SBO.BLL.pdb
+C:\Users\cb0290\Documents\GitHub\CorporateWebsite\SBO\bin\SBO.DAL.dll
+C:\Users\cb0290\Documents\GitHub\CorporateWebsite\SBO\bin\SBO.DAL.pdb

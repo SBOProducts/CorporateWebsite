@@ -1,5 +1,35 @@
-﻿@{
+﻿@model SBO.BLL.BusinessObjects.LoginBO
+@{
     ViewBag.Title = "Login";
 }
 
-<h2>Login</h2>
+<div class="row">
+    <div class="large-6 columns">
+        <h3>Login</h3>
+
+        @using (Html.BeginForm())
+        {
+            @Html.HiddenFor(m => m.ReturnUrl)
+            
+            @Html.LabelFor(m => m.Login)
+            @Html.TextBoxFor(m => m.Login)
+            @Html.ValidationMessageFor(m => m.Login)
+
+            @Html.LabelFor(m => m.Password)
+            @Html.TextBoxFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password)
+
+            @Html.CheckBoxFor(m => m.RememberMe) <span>Remember me next time?</span>
+            <p>
+                <input type="submit" class="primary button radius" value="submit" />
+            </p>
+        }
+
+        <p>Haven't created an account yet? @Html.ActionLink("Create One!", "Register", "Account") </p>
+    </div>
+    <div class="large-6 columns">
+        
+        
+    </div>
+</div>
+

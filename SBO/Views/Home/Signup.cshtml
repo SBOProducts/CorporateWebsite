@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Sign Up";
+}
+
+
+<div class="row">
+    <div class="small-4 small-centered columns">
+        <img id="Logo" src="@Url.Content("~/Images/Logo6.png")" alt="SBO Logo" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="small-8 small-centered columns">
+        
+        <div class="panel">
+            <h4>Create an Account</h4>
+            <div>
+                <label for="Name"><strong>Your Name</strong></label>
+                <input name="Name" id="Name" type="text" placeholder="eg. John Smith" />
+            </div>
+            <div>
+                <label for="AccountName"><strong>Account Name</strong></label>
+                <input name="AccountName" id="AccountName" type="text" placeholder="eg. Main Street Trailers" />
+            </div>
+            <div>
+                <label for="Email"><strong>Email</strong></label>
+                <input name="Email" id="Email" type="text" placeholder="eg. JohnSmith@gmail.com" />
+            </div>
+            <div>
+                <label for="Password"><strong>Password</strong></label>
+                <input name="Password" id="Password" type="password" placeholder="eg. •••••••••••••" />
+            </div>
+
+            <input type="submit" class="success button radius" value="Create new Account" />
+
+            <p>
+                Already have an account? @Html.ActionLink("Log In.", "Login", "Account")
+            </p>
+        </div>
+
+        <p>
+            By signing up, you agree to our <a>Privacy Policy</a> and <a>Terms of Service</a>.
+        </p>
+
+    </div>
+</div>

@@ -1,7 +1,36 @@
-﻿<h1>Small Business Online</h1>
+﻿     
+<div class="hide-for-medium-down">
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+</div>
+   
+<div class="row">
+    <div class="large-6  medium-6  columns">
+        <img src="@Url.Content("~/Images/TrailerOnline.jpg")" />
+    </div>
+    <div class="large-6 medium-6 columns">
+        <a href="@Url.Action("Index", "Home", new { area = "TrailerOnline" })">
+            <div class="action-panel">
+                <img src="@Url.Content("~/Images/icons/info.png")" /><h3>See Example</h3>
+            </div>
+        </a>
 
-<ul>
-    <li>@Html.ActionLink("Register", "Register", "Account")</li>
-    <li>@Html.ActionLink("Login", "Login", "Account")</li>
-    <li>@Html.ActionLink("My Websites", "Index", "Home", new { area = "Website" }, null)</li>
-</ul>
+        <a href="@Url.Action("MyAccount", "Account")">
+            <div class="action-panel">
+                <img src="@Url.Content("~/Images/icons/demo.png")" /><h3>Try Trailer Online</h3>
+            </div>
+        </a>
+
+        <a href="@Url.Action("Index", "Pricing")">
+            <div class="action-panel">
+                <img src="@Url.Content("~/Images/icons/cart.png")" /><h3>Our Prices</h3>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="hide-for-medium-down">
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+</div>
+

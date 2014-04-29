@@ -14,7 +14,7 @@ namespace SBO
         public static Bundle Scripts()
         {
             return new ScriptBundle("~/bundles/sbo").Include(
-                      "~/Scripts/sbo/navigation.js"
+                      
                       );
         }
     }

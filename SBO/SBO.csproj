@@ -183,11 +183,16 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\TrailerOnline\Controllers\HomeController.cs" />
+    <Compile Include="Areas\TrailerOnline\TrailerOnlineAreaRegistration.cs" />
     <Compile Include="Areas\Website\Controllers\HomeController.cs" />
     <Compile Include="Areas\Website\Controllers\SiteController.cs" />
     <Compile Include="Areas\Website\WebsiteAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PricingController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Core\SBOUser.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -195,12 +200,44 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AZURE\SQL\Create\BusinessType.txt" />
+    <Content Include="AZURE\SQL\Create\Site.txt" />
+    <Content Include="AZURE\SQL\Create\SiteUsers.txt" />
+    <Content Include="AZURE\SQL\Create\User.txt" />
     <Content Include="Content\foundation\foundation.css" />
     <Content Include="Content\foundation\foundation.mvc.css" />
     <Content Include="Content\foundation\normalize.css" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\Category-Large.png" />
+    <Content Include="Images\Category.png" />
+    <Content Include="Images\Click&amp;Type-Large.png" />
+    <Content Include="Images\Click&amp;Type.png" />
+    <Content Include="Images\Desktop-Large.png" />
+    <Content Include="Images\Desktop.png" />
+    <Content Include="Images\icons\cart.png" />
+    <Content Include="Images\icons\Computer.png" />
+    <Content Include="Images\icons\Demo.png" />
+    <Content Include="Images\icons\Editor.png" />
+    <Content Include="Images\icons\Evaluate.png" />
+    <Content Include="Images\icons\eye.png" />
+    <Content Include="Images\icons\HandShake.png" />
+    <Content Include="Images\icons\info.png" />
+    <Content Include="Images\icons\License.png" />
+    <Content Include="Images\icons\magnify.png" />
+    <Content Include="Images\icons\Responsive.png" />
+    <Content Include="Images\icons\Server.png" />
+    <Content Include="Images\icons\SocialIcons.png" />
+    <Content Include="Images\Logo6.png" />
+    <Content Include="Images\PhoneDisplay-Large.png" />
+    <Content Include="Images\PhoneDisplay.png" />
+    <Content Include="Images\ProductEditor-Large.png" />
+    <Content Include="Images\ProductEditor.png" />
+    <Content Include="Images\ProductGrid.png" />
+    <Content Include="Images\TabletDisplay-Large.png" />
+    <Content Include="Images\TabletDisplay.png" />
+    <Content Include="Images\TrailerOnline.jpg" />
     <Content Include="Scripts\foundation\fastclick.js" />
     <Content Include="Scripts\foundation\foundation.abide.js" />
     <Content Include="Scripts\foundation\foundation.accordion.js" />
@@ -220,7 +257,7 @@
     <Content Include="Scripts\foundation\foundation.tooltip.js" />
     <Content Include="Scripts\foundation\foundation.topbar.js" />
     <Content Include="Scripts\foundation\jquery.cookie.js" />
-    <Content Include="Scripts\sbo\navigation.js" />
+    <Content Include="Scripts\foundation\modernizr.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -228,7 +265,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Content\Admin.css" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
@@ -238,9 +274,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\TrailerOnline\Models\" />
+    <Folder Include="Areas\TrailerOnline\Views\Shared\" />
     <Folder Include="Filters\" />
-    <Folder Include="Images\" />
-    <Folder Include="Models\" />
+    <Folder Include="Scripts\sbo\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -277,6 +314,37 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Website\Views\Shared\_LayoutAdmin.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_MainNavigation.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Signup.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Pricing\Index.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Service\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Features.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\TrailerOnline\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\TrailerOnline\Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\MyAccount.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{aca04bf4-7814-45a5-8347-6f77881c241f}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

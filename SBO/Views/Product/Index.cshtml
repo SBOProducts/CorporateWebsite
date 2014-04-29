@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "Products";
+    ViewBag.Heading = "Products";
+}
+
+<div class="row">
+
+    <div class="large-8 columns">
+
+        <!-- Trailer PRO -->
+        <div class="row">
+            <div class="large-12 columns">
+
+            </div>
+        </div>
+
+        <!-- Responsive design / editing -->
+        <div class="row">
+            <div class="large-6 columns">
+                <h4><img src="@Url.Content("~/Images/icons/Responsive.png")" alt="Responsive Design" /> Responsive Design</h4>
+                <p>
+                    The number of smart phones and tablets connecting to the internet is rapidly growing. Responsive
+                    design ensures your website will look great on these devices today and in the years to come. 
+                </p>
+            </div>
+            <div class="large-6 columns">
+                <h4><img src="@Url.Content("~/Images/icons/Editor.png")" alt="Simplified Editing" /> Simplified Editing </h4>
+                <p>
+                    We designed Trailer PRO to be simple and fast. Edit pages by simply clicking on text
+                    and typing in place. Drag and drop one or more images onto the screen to automatically 
+                    upload them. 
+                </p>
+            </div>
+        </div>
+
+        <!-- Image Slider -->
+        <div class="row">
+            <div class="large-12 columns">
+                <ul id="ProductSlider" data-orbit data-options="timer_speed:8000; animation_speed:1000; circular:false; resume_on_mouseout:true; ">
+                    <li>
+                        <img src="@Url.Content("~/Images/Desktop-Large.png")" />
+                        <div class="orbit-caption">
+                            The large screen size of a desktop lets you see many products at once.
+                        </div>
+                    </li>
+                    <li>
+                        <img src="@Url.Content("~/Images/TabletDisplay-Large.png")" />
+                        <div class="orbit-caption">
+                            The website automatically adjusts for tablet display.
+                        </div>
+                    </li>
+                    <li>
+                        <img src="@Url.Content("~/Images/PhoneDisplay-Large.png")" />
+                        <div class="orbit-caption">
+                            The website automatically adjusts for phone display.
+                        </div>
+                    </li>
+                    <li>
+                        <img src="@Url.Content("~/Images/ProductEditor-Large.png")" />
+                        <div class="orbit-caption">
+                            Add as many images to a product as you want by simply dragging them onto the screen.
+                        </div>
+                    </li>
+                    <li>
+                        <img src="@Url.Content("~/Images/Click&Type-Large.png")" />
+                        <div class="orbit-caption">
+                            To make changes to text simply click, type, and save. It's that easy.
+                        </div>
+                    </li>
+                    <li>
+                        <img src="@Url.Content("~/Images/Category-Large.png")" />
+                        <div class="orbit-caption">
+                            Speaking of easy, this is how you add new category pages for your products. 
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="large-4 columns">
+        <!-- Features -->
+        @Html.Partial("_Features")
+    </div>
+
+    
+</div>
+
