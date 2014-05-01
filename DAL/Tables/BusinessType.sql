@@ -1,4 +1,4 @@
-/****** Object:  Table [dbo].[BusinessType]    Script Date: 4/29/2014 4:15:49 PM ******/
+/****** Object:  Table [dbo].[BusinessType]    Script Date: 5/1/2014 1:39:03 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 CREATE TABLE [dbo].[BusinessType](

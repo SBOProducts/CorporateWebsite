@@ -1,4 +1,4 @@
-﻿@model SBO.BLL.BusinessObjects.RegisterBO
+﻿@model SBO.Models.RegisterModel
 @{
     ViewBag.Title = "Register";
 }
@@ -7,33 +7,21 @@
 <div class="row">
     <div class="large-6 columns">
         <h2>Register</h2>
-        @using (Html.BeginForm("Register", "Account"))
-        {
-           
-            @Html.LabelFor(m => m.Login)
-            @Html.TextBoxFor(m => m.Login)
-            @Html.ValidationMessageFor(m => m.Login)
-
-            @Html.LabelFor(m => m.Password)
-            @Html.TextBoxFor(m => m.Password)
-            @Html.ValidationMessageFor(m => m.Password)
-
-            @Html.LabelFor(m => m.Name)
-            @Html.TextBoxFor(m => m.Name)
-            @Html.ValidationMessageFor(m => m.Name)
-
-            @Html.LabelFor(m => m.Email)
-            @Html.TextBoxFor(m => m.Email)
-            @Html.ValidationMessageFor(m => m.Email)
-
-            @Html.LabelFor(m => m.Phone)
-            @Html.TextBoxFor(m => m.Phone)
-            @Html.ValidationMessageFor(m => m.Phone)
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
             
-            <p>
-                <input type="submit" class="primary button radius" value="submit" />
-            </p>
-        } 
+            
+            @Html.LabelFor(m => m.UserName)
+            @Html.TextBoxFor(m => m.UserName)
+            
+            @Html.LabelFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password)
+            
+            @Html.LabelFor(m => m.ConfirmPassword)
+            @Html.PasswordFor(m => m.ConfirmPassword)
+            <input type="submit" value="Register" />
+        }
     </div>
 </div>
     

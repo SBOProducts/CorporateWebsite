@@ -1,5 +1,5 @@
 // CREATED BY: Nathan Townsend
-// CREATED DATE: 4/29/2014
+// CREATED DATE: 5/1/2014
 // DO NOT MODIFY THIS CODE
 // CHANGES WILL BE LOST WHEN THE GENERATOR IS RUN AGAIN
 // GENERATION TOOL: Dalapi Code Generator (DalapiPro.com)
@@ -25,35 +25,26 @@ namespace SBO.DAL.DAL.dbo
         /// <summary>
         /// Creates a new User record
         /// </summary>
-        public static int Create(UserDO DO)
+        public static void Create(UserDO DO)
         {
+            SqlParameter _UserId = new SqlParameter("UserId", SqlDbType.Int);
             SqlParameter _Name = new SqlParameter("Name", SqlDbType.VarChar);
             SqlParameter _Email = new SqlParameter("Email", SqlDbType.VarChar);
             SqlParameter _Phone = new SqlParameter("Phone", SqlDbType.VarChar);
-            SqlParameter _Login = new SqlParameter("Login", SqlDbType.VarChar);
-            SqlParameter _PasswordHash = new SqlParameter("PasswordHash", SqlDbType.VarChar);
-            SqlParameter _Created = new SqlParameter("Created", SqlDbType.DateTime);
-            SqlParameter _LastAccessed = new SqlParameter("LastAccessed", SqlDbType.DateTime);
             
+            _UserId.Value = DO.UserId;
             _Name.Value = DO.Name;
             _Email.Value = DO.Email;
             _Phone.Value = DO.Phone;
-            _Login.Value = DO.Login;
-            _PasswordHash.Value = DO.PasswordHash;
-            _Created.Value = DO.Created;
-            _LastAccessed.Value = DO.LastAccessed;
             
             SqlParameter[] _params = new SqlParameter[] {
+                _UserId,
                 _Name,
                 _Email,
-                _Phone,
-                _Login,
-                _PasswordHash,
-                _Created,
-                _LastAccessed
+                _Phone
             };
 
-            return DataCommon.ExecuteScalar("[dbo].[User_Insert]", _params, "dbo");
+            DataCommon.ExecuteNonQuery("[dbo].[User_Insert]", _params, "dbo");
             
         }
 
@@ -67,29 +58,17 @@ namespace SBO.DAL.DAL.dbo
             SqlParameter _Name = new SqlParameter("Name", SqlDbType.VarChar);
             SqlParameter _Email = new SqlParameter("Email", SqlDbType.VarChar);
             SqlParameter _Phone = new SqlParameter("Phone", SqlDbType.VarChar);
-            SqlParameter _Login = new SqlParameter("Login", SqlDbType.VarChar);
-            SqlParameter _PasswordHash = new SqlParameter("PasswordHash", SqlDbType.VarChar);
-            SqlParameter _Created = new SqlParameter("Created", SqlDbType.DateTime);
-            SqlParameter _LastAccessed = new SqlParameter("LastAccessed", SqlDbType.DateTime);
             
             _UserId.Value = DO.UserId;
             _Name.Value = DO.Name;
             _Email.Value = DO.Email;
             _Phone.Value = DO.Phone;
-            _Login.Value = DO.Login;
-            _PasswordHash.Value = DO.PasswordHash;
-            _Created.Value = DO.Created;
-            _LastAccessed.Value = DO.LastAccessed;
             
             SqlParameter[] _params = new SqlParameter[] {
                 _UserId,
                 _Name,
                 _Email,
-                _Phone,
-                _Login,
-                _PasswordHash,
-                _Created,
-                _LastAccessed
+                _Phone
             };
 
             return DataCommon.ExecuteScalar("[dbo].[User_Update]", _params, "dbo");
@@ -127,14 +106,9 @@ namespace SBO.DAL.DAL.dbo
                 UserDO obj = new UserDO();
                 
                 obj.UserId = sr.GetInt32(sr.GetOrdinal("UserId"));
-                obj.Name = sr.GetString(sr.GetOrdinal("Name"));
-                obj.Email = sr.GetString(sr.GetOrdinal("Email"));
-                obj.Phone = sr.GetString(sr.GetOrdinal("Phone"));
-                obj.Login = sr.GetString(sr.GetOrdinal("Login"));
-                obj.PasswordHash = sr.GetString(sr.GetOrdinal("PasswordHash"));
-                obj.Created = sr.GetDateTime(sr.GetOrdinal("Created"));
-                obj.LastAccessed = sr.GetDateTime(sr.GetOrdinal("LastAccessed"));
-                
+                if (sr.IsDBNull(sr.GetOrdinal("Name"))) { obj.Name = null; } else { obj.Name = sr.GetString(sr.GetOrdinal("Name")); }
+                if (sr.IsDBNull(sr.GetOrdinal("Email"))) { obj.Email = null; } else { obj.Email = sr.GetString(sr.GetOrdinal("Email")); }
+                if (sr.IsDBNull(sr.GetOrdinal("Phone"))) { obj.Phone = null; } else { obj.Phone = sr.GetString(sr.GetOrdinal("Phone")); }
 
 
                 objs.Add(obj);
@@ -167,14 +141,9 @@ namespace SBO.DAL.DAL.dbo
                 UserDO obj = new UserDO();
 				
                 obj.UserId = sr.GetInt32(sr.GetOrdinal("UserId"));
-                obj.Name = sr.GetString(sr.GetOrdinal("Name"));
-                obj.Email = sr.GetString(sr.GetOrdinal("Email"));
-                obj.Phone = sr.GetString(sr.GetOrdinal("Phone"));
-                obj.Login = sr.GetString(sr.GetOrdinal("Login"));
-                obj.PasswordHash = sr.GetString(sr.GetOrdinal("PasswordHash"));
-                obj.Created = sr.GetDateTime(sr.GetOrdinal("Created"));
-                obj.LastAccessed = sr.GetDateTime(sr.GetOrdinal("LastAccessed"));
-                
+                if (sr.IsDBNull(sr.GetOrdinal("Name"))) { obj.Name = null; } else { obj.Name = sr.GetString(sr.GetOrdinal("Name")); }
+                if (sr.IsDBNull(sr.GetOrdinal("Email"))) { obj.Email = null; } else { obj.Email = sr.GetString(sr.GetOrdinal("Email")); }
+                if (sr.IsDBNull(sr.GetOrdinal("Phone"))) { obj.Phone = null; } else { obj.Phone = sr.GetString(sr.GetOrdinal("Phone")); }
 
                 objs.Add(obj);
             }
@@ -205,52 +174,9 @@ namespace SBO.DAL.DAL.dbo
                 UserDO obj = new UserDO();
 				
                 obj.UserId = sr.GetInt32(sr.GetOrdinal("UserId"));
-                obj.Name = sr.GetString(sr.GetOrdinal("Name"));
-                obj.Email = sr.GetString(sr.GetOrdinal("Email"));
-                obj.Phone = sr.GetString(sr.GetOrdinal("Phone"));
-                obj.Login = sr.GetString(sr.GetOrdinal("Login"));
-                obj.PasswordHash = sr.GetString(sr.GetOrdinal("PasswordHash"));
-                obj.Created = sr.GetDateTime(sr.GetOrdinal("Created"));
-                obj.LastAccessed = sr.GetDateTime(sr.GetOrdinal("LastAccessed"));
-                
-
-                objs.Add(obj);
-            }
-
-            return objs.ToArray();
-        }
-
-/// <summary>
-        /// Selects User records by User_Login
-        /// </summary>
-        public static UserDO[] GetByUser_Login(String Login)
-        {
-
-            SqlParameter _Login = new SqlParameter("Login", SqlDbType.VarChar);
-			
-            _Login.Value = Login;
-			
-            SqlParameter[] _params = new SqlParameter[] {
-                _Login
-            };
-
-            SafeReader sr = DataCommon.ExecuteSafeReader("[dbo].[User_GetByUser_Login]", _params, "dbo");
-
-            List<UserDO> objs = new List<UserDO>();
-			
-            while(sr.Read())
-            {
-                UserDO obj = new UserDO();
-				
-                obj.UserId = sr.GetInt32(sr.GetOrdinal("UserId"));
-                obj.Name = sr.GetString(sr.GetOrdinal("Name"));
-                obj.Email = sr.GetString(sr.GetOrdinal("Email"));
-                obj.Phone = sr.GetString(sr.GetOrdinal("Phone"));
-                obj.Login = sr.GetString(sr.GetOrdinal("Login"));
-                obj.PasswordHash = sr.GetString(sr.GetOrdinal("PasswordHash"));
-                obj.Created = sr.GetDateTime(sr.GetOrdinal("Created"));
-                obj.LastAccessed = sr.GetDateTime(sr.GetOrdinal("LastAccessed"));
-                
+                if (sr.IsDBNull(sr.GetOrdinal("Name"))) { obj.Name = null; } else { obj.Name = sr.GetString(sr.GetOrdinal("Name")); }
+                if (sr.IsDBNull(sr.GetOrdinal("Email"))) { obj.Email = null; } else { obj.Email = sr.GetString(sr.GetOrdinal("Email")); }
+                if (sr.IsDBNull(sr.GetOrdinal("Phone"))) { obj.Phone = null; } else { obj.Phone = sr.GetString(sr.GetOrdinal("Phone")); }
 
                 objs.Add(obj);
             }

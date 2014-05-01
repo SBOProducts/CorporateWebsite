@@ -11,10 +11,13 @@ namespace SBO.Areas.TrailerOnline.Controllers
         //
         // GET: /TrailerOnline/Home/
 
-        public ActionResult Index()
+        public ActionResult Index(string SiteName)
         {
+            ViewBag.SiteName = SiteName;
             return View();
         }
+
+
 
     }
 }

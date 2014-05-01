@@ -1,39 +1,55 @@
-﻿using SBO.BLL;
-using SBO.BLL.BusinessObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Transactions;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+using DotNetOpenAuth.AspNet;
+using Microsoft.Web.WebPages.OAuth;
+using WebMatrix.WebData;
+using SBO.Filters;
+using SBO.Models;
+using SBO.BLL.BusinessObjects;
+using SBO.BLL;
 
 namespace SBO.Controllers
 {
+
+    [Authorize]
+    [InitializeSimpleMembership]
     public class AccountController : Controller
     {
 
-        /// <summary>
-        /// provides the form to login to the system 
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult Login()
+        [AllowAnonymous]
+        public ActionResult Login(string returnUrl)
         {
-            LoginBO model = new LoginBO();
-            if (Request.QueryString["ReturnUrl"] != null)
-                model.ReturnUrl = Request.QueryString["ReturnUrl"];
+            ViewBag.ReturnUrl = returnUrl;
+            return View();
+        }
 
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(LoginModel model, string returnUrl)
+        {
+            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+            {
+                return RedirectToLocal(returnUrl);
+            }
+
+            // If we got this far, something failed, redisplay form
+            ModelState.AddModelError("", "The user name or password provided is incorrect.");
             return View(model);
         }
 
 
-        /// <summary>
-        /// validates user's credentials and grants access if login is successful
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
-        [HttpPost]
-        public ActionResult Login(LoginBO model)
+        public ActionResult LogOff()
         {
-            return View(model);
+            WebSecurity.Logout();
+
+            return RedirectToAction("Index", "Home");
         }
 
 
@@ -50,32 +66,134 @@ namespace SBO.Controllers
 
 
         /// <summary>
-        /// provides the form for creating a new account
+        /// shows user's information
         /// </summary>
         /// <returns></returns>
+        [Authorize]
+        public ActionResult Profile()
+        {
+            UserBO profile = AccountBLL.GetUser(WebSecurity.GetUserId(User.Identity.Name));
+
+            return View(profile);
+        }
+        
+
+
+        [AllowAnonymous]
         public ActionResult Register()
         {
             return View();
         }
 
 
-        /// <summary>
-        /// validates user registration and creates a new account
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns></returns>
         [HttpPost]
-        public ActionResult Register(RegisterBO model)
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(RegisterModel model)
         {
-            if (!ModelState.IsValid)
-                return View(model);
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    // create the membership record
+                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+                    
+                    // add the user record to the database
+                    int userId = WebSecurity.GetUserId(User.Identity.Name);
+                    AccountBLL.CreateUser(userId);
+                    
+                    // login the user and take to profile page
+                    WebSecurity.Login(model.UserName, model.Password);
+                    return RedirectToAction("Profile", "Account");
+                }
+                catch (MembershipCreateUserException e)
+                {
+                    ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
+                }
+            }
 
-            SBOUserBO user = AccountBLL.CreateNewRegistration(model);
-
+            // If we got this far, something failed, redisplay form
             return View(model);
-
         }
 
+
+        #region Helpers
+
+
+        private ActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+        public enum ManageMessageId
+        {
+            ChangePasswordSuccess,
+            SetPasswordSuccess,
+            RemoveLoginSuccess,
+        }
+
+        internal class ExternalLoginResult : ActionResult
+        {
+            public ExternalLoginResult(string provider, string returnUrl)
+            {
+                Provider = provider;
+                ReturnUrl = returnUrl;
+            }
+
+            public string Provider { get; private set; }
+            public string ReturnUrl { get; private set; }
+
+            public override void ExecuteResult(ControllerContext context)
+            {
+                OAuthWebSecurity.RequestAuthentication(Provider, ReturnUrl);
+            }
+        }
+
+        private static string ErrorCodeToString(MembershipCreateStatus createStatus)
+        {
+            // See http://go.microsoft.com/fwlink/?LinkID=177550 for
+            // a full list of status codes.
+            switch (createStatus)
+            {
+                case MembershipCreateStatus.DuplicateUserName:
+                    return "User name already exists. Please enter a different user name.";
+
+                case MembershipCreateStatus.DuplicateEmail:
+                    return "A user name for that e-mail address already exists. Please enter a different e-mail address.";
+
+                case MembershipCreateStatus.InvalidPassword:
+                    return "The password provided is invalid. Please enter a valid password value.";
+
+                case MembershipCreateStatus.InvalidEmail:
+                    return "The e-mail address provided is invalid. Please check the value and try again.";
+
+                case MembershipCreateStatus.InvalidAnswer:
+                    return "The password retrieval answer provided is invalid. Please check the value and try again.";
+
+                case MembershipCreateStatus.InvalidQuestion:
+                    return "The password retrieval question provided is invalid. Please check the value and try again.";
+
+                case MembershipCreateStatus.InvalidUserName:
+                    return "The user name provided is invalid. Please check the value and try again.";
+
+                case MembershipCreateStatus.ProviderError:
+                    return "The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+
+                case MembershipCreateStatus.UserRejected:
+                    return "The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+
+                default:
+                    return "An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
+            }
+        }
+        #endregion
 
 
     }

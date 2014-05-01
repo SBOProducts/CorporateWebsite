@@ -1,0 +1,44 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <div class="fixed">
+        <nav class="top-bar" data-topbar>
+            <ul class="title-area">
+                <li class="name">
+                    <h1>@Html.ActionLink("Small Business Online", "Index", "Home")</h1>
+                </li>
+                <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+            </ul>
+
+            <section class="top-bar-section">
+                <!-- Right Nav Section -->
+                <ul class="right">
+                    <li class="has-dropdown">
+                        <a href="#">Site Actions</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Appearance</a></li>
+                            <li><a href="#">Pages</a></li>
+                            <li><a href="#">Social Media</a></li>
+                            <li><a href="#">Users</a></li>
+                            <li><a href="#">Media</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#">My Account</a>
+                        <ul class="dropdown">
+                            <li>@Html.ActionLink("Profile", "Profile", "Account")</li>
+                            <li><a href="#">Websites</a></li>
+                            <li><a href="#">Account</a></li>
+                            <li>@Html.ActionLink("Log Out", "LogOff", "Account")</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- Left Nav Section -->
+                <ul class="left">
+                    <li><a href="#">Left Nav Button</a></li>
+                </ul>
+            </section>
+        </nav>
+    </div>
+}

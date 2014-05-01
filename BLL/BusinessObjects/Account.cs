@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SBO.DAL.DO.dbo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,37 +8,26 @@ using System.Threading.Tasks;
 
 namespace SBO.BLL.BusinessObjects
 {
-    /// <summary>
-    /// Used for the login screen
-    /// </summary>
-    public class LoginBO
-    {
-        [Required]
-        [Display(Name = "Login")]
-        public string Login { get; set; }
 
-        [Required]
-        [Display(Name = "Password")]
-        public string Password { get; set; }
-
-        public bool RememberMe { get; set; }
-
-        public string ReturnUrl { get; set; }
-    }
 
 
     /// <summary>
     /// Used for the user registration process
     /// </summary>
-    public class RegisterBO
+    public class UserBO
     {
-        [Required]
-        [Display(Name = "Login")]
-        public string Login { get; set; }
+        internal UserBO(UserDO UserDO)
+        {
+            this.UserId = UserDO.UserId;
+            this.Name = UserDO.Name;
+            this.Email = UserDO.Email;
+            this.Phone = UserDO.Phone;
+        }
 
-        [Required]
-        [Display(Name = "Password")]
-        public string Password { get; set; }
+        /// <summary>
+        /// The user id in the database
+        /// </summary>
+        public int UserId { get; set; }
 
         [Required]
         [Display(Name = "Name")]

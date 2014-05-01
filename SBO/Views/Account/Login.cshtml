@@ -1,4 +1,4 @@
-﻿@model SBO.BLL.BusinessObjects.LoginBO
+﻿@model SBO.Models.LoginModel
 @{
     ViewBag.Title = "Login";
 }
@@ -7,22 +7,22 @@
     <div class="large-6 columns">
         <h3>Login</h3>
 
-        @using (Html.BeginForm())
-        {
-            @Html.HiddenFor(m => m.ReturnUrl)
-            
-            @Html.LabelFor(m => m.Login)
-            @Html.TextBoxFor(m => m.Login)
-            @Html.ValidationMessageFor(m => m.Login)
+        @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
 
+            @Html.LabelFor(m => m.UserName)
+            @Html.TextBoxFor(m => m.UserName)
+            @Html.ValidationMessageFor(m => m.UserName)
+                    
             @Html.LabelFor(m => m.Password)
-            @Html.TextBoxFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password)
             @Html.ValidationMessageFor(m => m.Password)
 
-            @Html.CheckBoxFor(m => m.RememberMe) <span>Remember me next time?</span>
-            <p>
-                <input type="submit" class="primary button radius" value="submit" />
-            </p>
+            @Html.CheckBoxFor(m => m.RememberMe)
+            @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+            
+            <input type="submit" value="Log in" />
         }
 
         <p>Haven't created an account yet? @Html.ActionLink("Create One!", "Register", "Account") </p>

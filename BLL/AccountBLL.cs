@@ -12,29 +12,30 @@ namespace SBO.BLL
 {
     public class AccountBLL
     {
-        public static SBOUserBO CreateNewRegistration(RegisterBO Registration){
-            
-            // create the new data object
-            UserDO data = new UserDO()
-            {
-                Created = DateTime.Now,
-                Email = Registration.Email,
-                LastAccessed = DateTime.Now,
-                Login = Registration.Login,
-                Name = Registration.Name,
-                PasswordHash = PasswordHash.CreateHash(Registration.Password),
-                Phone = Registration.Phone
-            };
-
-            // add to database
-            data.UserId = User.Create(data);
-            
-            // build the business object
-            SBOUserBO user = new SBOUserBO(data);
-
-            return user;
-
+        /// <summary>
+        /// Creates a new user object with no properties set
+        /// </summary>
+        /// <param name="UserId"></param>
+        public static void CreateUser(int UserId)
+        {
+            UserDO data = new UserDO() { UserId = UserId };
+            User.Create(data);
         }
+
+
+        /// <summary>
+        /// Gets a user object by id
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <returns></returns>
+        public static UserBO GetUser(int UserId)
+        {
+            UserDO data = User.GetByPK(UserId).FirstOrDefault();
+            return new UserBO(data);
+        }
+
+
+
 
     }
 }

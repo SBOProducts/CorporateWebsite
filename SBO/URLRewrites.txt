@@ -1,0 +1,20 @@
+﻿<rewrite>
+      <rules>
+        <rule name="nathantownsend.com" stopProcessing="true">
+          <match url=".*" />
+          <conditions>
+            <add input="{HTTP_HOST}" pattern="^nathantownsend.com$" />
+            <add input="{PATH_INFO}" pattern="^/TrailerOnline/NathanTownsend/" negate="true" />
+          </conditions>
+          <action type="Rewrite" url="\TrailerOnline\NathanTownsend\{R:0}" />
+        </rule>
+        <rule name="cte.com" stopProcessing="true">
+          <match url=".*" />
+          <conditions>
+            <add input="{HTTP_HOST}" pattern="^cte.com$" />
+            <add input="{PATH_INFO}" pattern="^/Website/CapitalTrailer/" negate="true" />
+          </conditions>
+          <action type="Rewrite" url="\Website\CapitalTrailer\{R:0}" />
+        </rule>
+      </rules>
+    </rewrite>
