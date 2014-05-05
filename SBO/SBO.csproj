@@ -202,10 +202,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AZURE\SQL\Create\BusinessType.txt" />
-    <Content Include="AZURE\SQL\Create\Site.txt" />
-    <Content Include="AZURE\SQL\Create\SiteUsers.txt" />
-    <Content Include="AZURE\SQL\Create\User.txt" />
     <Content Include="Content\foundation\foundation.css" />
     <Content Include="Content\foundation\foundation.mvc.css" />
     <Content Include="Content\foundation\normalize.css" />
