@@ -70,7 +70,7 @@ namespace SBO.Controllers
         /// </summary>
         /// <returns></returns>
         [Authorize]
-        public ActionResult Profile()
+        public ActionResult UserProfile()
         {
             UserBO profile = AccountBLL.GetUser(WebSecurity.GetUserId(User.Identity.Name));
 
