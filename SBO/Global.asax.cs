@@ -24,5 +24,8 @@ namespace SBO
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
         }
+
+
+
     }
 }

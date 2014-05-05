@@ -1,4 +1,4 @@
-/****** Object:  Table [dbo].[Site]    Script Date: 5/1/2014 1:39:03 PM ******/
+/****** Object:  Table [dbo].[Site]    Script Date: 5/5/2014 1:40:40 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 CREATE TABLE [dbo].[Site](
@@ -12,15 +12,13 @@ CREATE TABLE [dbo].[Site](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
-/****** Object:  Index [Site_BusinessTypeId]    Script Date: 5/1/2014 1:39:03 PM ******/
+/****** Object:  Index [Site_BusinessTypeId]    Script Date: 5/5/2014 1:40:40 PM ******/
 CREATE NONCLUSTERED INDEX [Site_BusinessTypeId] ON [dbo].[Site]
 (
 	[BusinessTypeId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-SET ANSI_PADDING ON
-
-/****** Object:  Index [Site_SiteName]    Script Date: 5/1/2014 1:39:03 PM ******/
-CREATE NONCLUSTERED INDEX [Site_SiteName] ON [dbo].[Site]
+/****** Object:  Index [Site_SiteId]    Script Date: 5/5/2014 1:40:40 PM ******/
+CREATE NONCLUSTERED INDEX [Site_SiteId] ON [dbo].[Site]
 (
-	[SiteName] ASC
+	[SiteId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]

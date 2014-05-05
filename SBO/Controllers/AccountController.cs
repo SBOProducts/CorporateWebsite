@@ -65,20 +65,11 @@ namespace SBO.Controllers
         }
 
 
+
         /// <summary>
-        /// shows user's information
+        /// The form used to register an account
         /// </summary>
         /// <returns></returns>
-        [Authorize]
-        public ActionResult UserProfile()
-        {
-            UserBO profile = AccountBLL.GetUser(WebSecurity.GetUserId(User.Identity.Name));
-
-            return View(profile);
-        }
-        
-
-
         [AllowAnonymous]
         public ActionResult Register()
         {
@@ -86,6 +77,11 @@ namespace SBO.Controllers
         }
 
 
+        /// <summary>
+        /// Processes a request to register an account
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -95,16 +91,8 @@ namespace SBO.Controllers
             {
                 try
                 {
-                    // create the membership record
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
-                    
-                    // add the user record to the database
-                    int userId = WebSecurity.GetUserId(User.Identity.Name);
-                    AccountBLL.CreateUser(userId);
-                    
-                    // login the user and take to profile page
-                    WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("Profile", "Account");
+                    AccountBLL.CreateUserProfile(model.UserName, model.Password);
+                    return RedirectToAction("UserProfile", "Account");
                 }
                 catch (MembershipCreateUserException e)
                 {
@@ -114,6 +102,36 @@ namespace SBO.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+
+        /// <summary>
+        /// Shows user's information
+        /// </summary>
+        /// <returns></returns>
+        [Authorize]
+        public ActionResult UserProfile()
+        {
+            UserProfileBO profile = AccountBLL.GetUserProfile(User.Identity.Name);
+            return View(profile);
+        }
+
+
+        /// <summary>
+        /// Updates user's profile
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public ActionResult UserProfile(UserProfileBO profile)
+        {
+            if (!ModelState.IsValid)
+                return View(profile);
+
+            AccountBLL.UpdateUserProfile(profile);
+            ViewBag.Message = "Your information was updated";
+            return View(profile);
         }
 
 

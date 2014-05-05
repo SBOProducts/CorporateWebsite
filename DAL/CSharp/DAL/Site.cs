@@ -1,5 +1,5 @@
 // CREATED BY: Nathan Townsend
-// CREATED DATE: 5/1/2014
+// CREATED DATE: 5/5/2014
 // DO NOT MODIFY THIS CODE
 // CHANGES WILL BE LOST WHEN THE GENERATOR IS RUN AGAIN
 // GENERATION TOOL: Dalapi Code Generator (DalapiPro.com)
@@ -185,20 +185,20 @@ namespace SBO.DAL.DAL.dbo
         }
 
 /// <summary>
-        /// Selects Site records by Site_SiteName
+        /// Selects Site records by Site_SiteId
         /// </summary>
-        public static SiteDO[] GetBySite_SiteName(String SiteName)
+        public static SiteDO[] GetBySite_SiteId(Int32 SiteId)
         {
 
-            SqlParameter _SiteName = new SqlParameter("SiteName", SqlDbType.VarChar);
+            SqlParameter _SiteId = new SqlParameter("SiteId", SqlDbType.Int);
 			
-            _SiteName.Value = SiteName;
+            _SiteId.Value = SiteId;
 			
             SqlParameter[] _params = new SqlParameter[] {
-                _SiteName
+                _SiteId
             };
 
-            SafeReader sr = DataCommon.ExecuteSafeReader("[dbo].[Site_GetBySite_SiteName]", _params, "dbo");
+            SafeReader sr = DataCommon.ExecuteSafeReader("[dbo].[Site_GetBySite_SiteId]", _params, "dbo");
 
             List<SiteDO> objs = new List<SiteDO>();
 			

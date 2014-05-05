@@ -1,0 +1,27 @@
+﻿@model UserWebsiteBO
+@{
+    ViewBag.Title = "CreateWebsite";
+}
+
+<div class="row">
+    <div class="large-6 columns">
+        <h2>Create Website</h2>
+        <p>
+            To create a new website enter a name below. Use only letters, numbers, and hyphen characters. 
+        </p>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+    
+            @Html.LabelFor(m => m.SiteName)
+            @Html.TextBoxFor(m => m.SiteName)
+            @Html.ValidationMessageFor(m => m.SiteName)
+
+            <p><input type="submit" value="Submit" /></p>
+        }
+
+    </div>
+</div>
+
+

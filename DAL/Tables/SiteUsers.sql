@@ -1,4 +1,4 @@
-/****** Object:  Table [dbo].[SiteUsers]    Script Date: 5/1/2014 1:39:03 PM ******/
+/****** Object:  Table [dbo].[SiteUsers]    Script Date: 5/5/2014 1:40:40 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 CREATE TABLE [dbo].[SiteUsers](
@@ -13,3 +13,13 @@ CREATE TABLE [dbo].[SiteUsers](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
+/****** Object:  Index [SiteUsers_Site]    Script Date: 5/5/2014 1:40:40 PM ******/
+CREATE NONCLUSTERED INDEX [SiteUsers_Site] ON [dbo].[SiteUsers]
+(
+	[SiteId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+/****** Object:  Index [SiteUsers_User]    Script Date: 5/5/2014 1:40:40 PM ******/
+CREATE NONCLUSTERED INDEX [SiteUsers_User] ON [dbo].[SiteUsers]
+(
+	[UserId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]

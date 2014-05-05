@@ -1,4 +1,4 @@
-/****** Object:  Table [dbo].[User]    Script Date: 5/1/2014 1:39:03 PM ******/
+/****** Object:  Table [dbo].[User]    Script Date: 5/5/2014 1:40:40 PM ******/
 SET ANSI_NULLS ON
 SET QUOTED_IDENTIFIER ON
 CREATE TABLE [dbo].[User](
@@ -14,7 +14,7 @@ CREATE TABLE [dbo].[User](
 
 SET ANSI_PADDING ON
 
-/****** Object:  Index [User_Email]    Script Date: 5/1/2014 1:39:03 PM ******/
+/****** Object:  Index [User_Email]    Script Date: 5/5/2014 1:40:40 PM ******/
 CREATE NONCLUSTERED INDEX [User_Email] ON [dbo].[User]
 (
 	[Email] ASC

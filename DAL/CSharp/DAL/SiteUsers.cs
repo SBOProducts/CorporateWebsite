@@ -1,5 +1,5 @@
 // CREATED BY: Nathan Townsend
-// CREATED DATE: 5/1/2014
+// CREATED DATE: 5/5/2014
 // DO NOT MODIFY THIS CODE
 // CHANGES WILL BE LOST WHEN THE GENERATOR IS RUN AGAIN
 // GENERATION TOOL: Dalapi Code Generator (DalapiPro.com)
@@ -141,6 +141,74 @@ namespace SBO.DAL.DAL.dbo
             };
 
             SafeReader sr = DataCommon.ExecuteSafeReader("[dbo].[SiteUsers_GetByPK]", _params, "dbo");
+
+            List<SiteUsersDO> objs = new List<SiteUsersDO>();
+			
+            while(sr.Read())
+            {
+                SiteUsersDO obj = new SiteUsersDO();
+				
+                obj.UserId = sr.GetInt32(sr.GetOrdinal("UserId"));
+                obj.SiteId = sr.GetInt32(sr.GetOrdinal("SiteId"));
+                obj.Added = sr.GetDateTime(sr.GetOrdinal("Added"));
+                obj.Roles = sr.GetString(sr.GetOrdinal("Roles"));
+                
+
+                objs.Add(obj);
+            }
+
+            return objs.ToArray();
+        }
+
+/// <summary>
+        /// Selects SiteUsers records by SiteUsers_Site
+        /// </summary>
+        public static SiteUsersDO[] GetBySiteUsers_Site(Int32 SiteId)
+        {
+
+            SqlParameter _SiteId = new SqlParameter("SiteId", SqlDbType.Int);
+			
+            _SiteId.Value = SiteId;
+			
+            SqlParameter[] _params = new SqlParameter[] {
+                _SiteId
+            };
+
+            SafeReader sr = DataCommon.ExecuteSafeReader("[dbo].[SiteUsers_GetBySiteUsers_Site]", _params, "dbo");
+
+            List<SiteUsersDO> objs = new List<SiteUsersDO>();
+			
+            while(sr.Read())
+            {
+                SiteUsersDO obj = new SiteUsersDO();
+				
+                obj.UserId = sr.GetInt32(sr.GetOrdinal("UserId"));
+                obj.SiteId = sr.GetInt32(sr.GetOrdinal("SiteId"));
+                obj.Added = sr.GetDateTime(sr.GetOrdinal("Added"));
+                obj.Roles = sr.GetString(sr.GetOrdinal("Roles"));
+                
+
+                objs.Add(obj);
+            }
+
+            return objs.ToArray();
+        }
+
+/// <summary>
+        /// Selects SiteUsers records by SiteUsers_User
+        /// </summary>
+        public static SiteUsersDO[] GetBySiteUsers_User(Int32 UserId)
+        {
+
+            SqlParameter _UserId = new SqlParameter("UserId", SqlDbType.Int);
+			
+            _UserId.Value = UserId;
+			
+            SqlParameter[] _params = new SqlParameter[] {
+                _UserId
+            };
+
+            SafeReader sr = DataCommon.ExecuteSafeReader("[dbo].[SiteUsers_GetBySiteUsers_User]", _params, "dbo");
 
             List<SiteUsersDO> objs = new List<SiteUsersDO>();
 			
