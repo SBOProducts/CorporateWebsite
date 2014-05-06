@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "SelectAppearance";
+}
+
+<div class="row">
+    <div class="large-6 columns">
+        <h2>Website Appearance</h2>
+
+        <ul class="SquareBlocks small-block-grid-2 medium-block-grid-3 large-block-grid-4"> 
+            <li>
+                <img src="@Url.Content("~/Images/TrailerOnline.jpg")" alt="Trailer & Equipment Sales" />
+                <strong>Business</strong>
+            </li>
+        </ul>
+
+        <p>Choose an appearance for your website, you can change this later.</p>
+
+        <ul class="SquareBlocks small-block-grid-2 medium-block-grid-3 large-block-grid-4"> 
+            <li><a href="@Url.Action("CreateWebsite", "Website", new { Layout = 1 })"><img src="@Url.Content("~/Images/Layouts/TrailerOnlineDefault.jpg")" alt="Trailer Online" /></a></li>
+        </ul>
+
+
+    </div>
+    <div class="large-6 columns">
+    </div>
+</div>
+
+

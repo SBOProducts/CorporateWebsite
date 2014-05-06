@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "SelectBusinessType";
+}
+
+<div class="row">
+    <div class="large-6 columns">
+        <h2>Type of Business</h2>
+        <p>What type of business do you want to conduct with this website?</p>
+        <ul class="SquareBlocks small-block-grid-2 medium-block-grid-3 large-block-grid-4"> 
+            <li><a href="@Url.Action("SelectAppearance", "Website", new { BusinessTypeId = 1 })"><img src="@Url.Content("~/Images/TrailerOnline.jpg")" alt="Trailer & Equipment Sales" /></a></li>
+            <li><a href="@Url.Action("SelectAppearance", "Website", new { BusinessTypeId = 2 })"><img src="@Url.Content("~/Images/SalonBeauty.jpg")" alt="Salon & Beauty Shop" /></a></li>
+            <li><a href="@Url.Action("SelectAppearance", "Website", new { BusinessTypeId = 3 })"><img src="@Url.Content("~/Images/Restaurant.jpg")" alt="Restaurant" /></a></li>
+            <li><a href="@Url.Action("SelectAppearance", "Website", new { BusinessTypeId = 4 })"><img src="@Url.Content("~/Images/Contractor.jpg")" alt="Contractor" /></a></li>
+        </ul>
+    </div>
+    <div class="large-6 columns">
+    </div>
+</div>
+
+

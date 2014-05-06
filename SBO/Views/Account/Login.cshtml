@@ -5,7 +5,14 @@
 
 <div class="row">
     <div class="large-6 columns">
+        
+       
+
         <h3>Login</h3>
+
+        <p>
+            Creating demos is free and easy. Login below to get started. If you don't have an account yet, @Html.ActionLink("Register Now!", "Register", "Account") 
+        </p>
 
         @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
             @Html.AntiForgeryToken()
@@ -19,13 +26,18 @@
             @Html.PasswordFor(m => m.Password)
             @Html.ValidationMessageFor(m => m.Password)
 
-            @Html.CheckBoxFor(m => m.RememberMe)
-            @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+            @Html.CheckBoxFor(m => m.RememberMe) <text>Remember Me?</text>
             
-            <input type="submit" value="Log in" />
+            <p>
+                <input type="submit" value="Log in" class="button radius" />
+                @Html.ActionLink("Register Now", "Register", "Account", null, new { @class = "button radius secondary" }) 
+            </p>
         }
 
-        <p>Haven't created an account yet? @Html.ActionLink("Create One!", "Register", "Account") </p>
+        
+        
+
+        
     </div>
     <div class="large-6 columns">
         

@@ -7,9 +7,14 @@
 <div class="row">
     <div class="large-6 columns">
         <h2>Register</h2>
+
+        <p>
+            Create an account using the form below. Once registered you will be able to login later and create free demos. 
+        </p>
+
         @using (Html.BeginForm()) {
             @Html.AntiForgeryToken()
-            @Html.ValidationSummary()
+            @Html.ValidationSummary(true)
             
             @Html.LabelFor(m => m.UserName)
             @Html.TextBoxFor(m => m.UserName)
@@ -19,7 +24,7 @@
             
             @Html.LabelFor(m => m.ConfirmPassword)
             @Html.PasswordFor(m => m.ConfirmPassword)
-            <input type="submit" value="Register" />
+            <input type="submit" value="Register" class="button radius" />
         }
     </div>
 </div>

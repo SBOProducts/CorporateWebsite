@@ -123,7 +123,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
     .action-panel:hover {
-        background-color:#eee;
+        background-color:#FFCD8C;
     }
 
     .action-panel h3 {
@@ -240,5 +240,12 @@ tr.odd  td {
     color:#fff;
     background-color:#FF7C7C;
     border:1px solid #FF7C7C;
+    
+}
+
+
+/* Design Elements */
+
+ul.SquareBlocks li {
     
 }

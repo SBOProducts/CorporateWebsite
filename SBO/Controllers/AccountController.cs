@@ -8,7 +8,6 @@ using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
-using SBO.Filters;
 using SBO.Models;
 using SBO.BLL.BusinessObjects;
 using SBO.BLL;
@@ -17,7 +16,6 @@ namespace SBO.Controllers
 {
 
     [Authorize]
-    [InitializeSimpleMembership]
     public class AccountController : Controller
     {
 

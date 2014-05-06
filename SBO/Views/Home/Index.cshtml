@@ -3,27 +3,76 @@
     <p>&nbsp;</p>
     <p>&nbsp;</p>
 </div>
-   
+
 <div class="row">
     <div class="large-6  medium-6  columns">
+        
+        <p>
+            The best way to know if you will like something is to try it out.
+        </p>
+        
+        <h4>Start Your Free Demo</h4>
+        <label>Login</label>
+        <input type="text" />
+        <label>Password</label>
+        <input type="password" />
+        <label>Confirm Passowrd</label>
+        <input type="password" />
+        <label>Site Name</label>
+        <input type="text" />
+        <input type="submit" class="button radius" value="Create Your Free Demo" />
+        
+    </div>
+    <div class="large-6  medium-6  columns">
+        <h2>Trailer Online</h2>
+        <p>
+            Trailer Online is the easiest and most affordable system on the internet for promoting your trailer and equipment intentory online.
+        </p>
+        <ul>
+            <li></li>
+            <li>Free for the first 30 days</li>
+
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="large-4 medium-4 columns">
+
+    </div>
+</div>
+
+   
+<div class="row hide">
+    <div class="large-6  medium-6  columns">
+        <h2>Trailer Online</h2>
+        <p>
+            The best way to know if you like something or not is to try it out. We have a great product, @Html.ActionLink("give it a try!", "CreateWebsite", "Website")
+        </p>
+        
+        <ul>
+            <li>Easy to learn and use</li>
+            <li>Works on all devices including phones, tablets, and desktop computers</li>
+            <li>More affordable than other systems</li>
+        </ul>
+
         <img src="@Url.Content("~/Images/TrailerOnline.jpg")" />
     </div>
     <div class="large-6 medium-6 columns">
         <a href="@Url.Action("Index", "Home", new { area = "TrailerOnline" })">
             <div class="action-panel">
-                <img src="@Url.Content("~/Images/icons/info.png")" /><h3>See Example</h3>
+                <img src="@Url.Content("~/Images/icons/magnify.png")" /><h3>See It</h3>
             </div>
         </a>
 
         <a href="@Url.Action("MyAccount", "Account")">
             <div class="action-panel">
-                <img src="@Url.Content("~/Images/icons/demo.png")" /><h3>Try Trailer Online</h3>
+                <img src="@Url.Content("~/Images/icons/demo.png")" /><h3>Try It</h3>
             </div>
         </a>
 
         <a href="@Url.Action("Index", "Pricing")">
             <div class="action-panel">
-                <img src="@Url.Content("~/Images/icons/cart.png")" /><h3>Our Prices</h3>
+                <img src="@Url.Content("~/Images/icons/cart.png")" /><h3>Buy It</h3>
             </div>
         </a>
     </div>

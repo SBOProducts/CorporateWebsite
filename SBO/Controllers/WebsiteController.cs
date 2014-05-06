@@ -24,6 +24,22 @@ namespace SBO.Controllers
         }
 
 
+        #region Create Website Process
+
+        public ActionResult SelectBusinessType()
+        {
+            return View();
+        }
+
+        public ActionResult SelectAppearance()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// A form to create the website
+        /// </summary>
+        /// <returns></returns>
         [Authorize]
         public ActionResult CreateWebsite()
         {
@@ -31,7 +47,11 @@ namespace SBO.Controllers
             return View(model);
         }
 
-
+        /// <summary>
+        /// Creates the website
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
@@ -47,6 +67,9 @@ namespace SBO.Controllers
             return RedirectToAction("Index", "Home", new { area = "TrailerOnline", SiteName = model.SiteName });
         }
 
+
+
+        #endregion
 
     }
 }
