@@ -19,6 +19,7 @@ namespace SBO.Controllers
     public class AccountController : Controller
     {
 
+
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
@@ -34,7 +35,9 @@ namespace SBO.Controllers
         {
             if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
             {
-                return RedirectToLocal(returnUrl);
+                //return RedirectToLocal(returnUrl);
+                UserWebsiteBO site = WebsiteBLL.GetUserWebsites(WebSecurity.CurrentUserId).FirstOrDefault();
+                return RedirectToAction("Index", "Home", new { area = "TrailerOnline", SiteName = site.SiteName });
             }
 
             // If we got this far, something failed, redisplay form

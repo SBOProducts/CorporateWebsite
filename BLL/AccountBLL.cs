@@ -18,21 +18,25 @@ namespace SBO.BLL
         #region User Profile
 
         /// <summary>
-        /// Creates a new user object with no properties set
+        /// Creates a new user 
         /// </summary>
-        /// <param name="UserId"></param>
-        public static void CreateUserProfile(string UserName, string Password)
+        /// <param name="UserName">The user name used to login</param>
+        /// <param name="Password">The password used to login</param>
+        /// <returns>The user id of the new user</returns>
+        public static int CreateUserProfile(string UserName, string Password)
         {
             // create the membership record
             WebSecurity.CreateUserAndAccount(UserName, Password);
+
+            // login the user and take to profile page
+            WebSecurity.Login(UserName, Password);
 
             // add the user record to the database
             int UserId = WebSecurity.GetUserId(UserName);
             UserDO data = new UserDO() { UserId = UserId };
             User.Create(data);
 
-            // login the user and take to profile page
-            WebSecurity.Login(UserName, Password);
+            return UserId;
         }
 
 

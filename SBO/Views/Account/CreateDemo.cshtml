@@ -1,0 +1,25 @@
+﻿@model CreateDemoModel
+
+
+
+@using (Html.BeginForm("CreateDemo", "Account", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    @Html.LabelFor(m => m.EmailAddress)
+    @Html.TextBoxFor(m => m.EmailAddress)
+    @Html.ValidationMessageFor(m => m.EmailAddress)
+    
+    @Html.LabelFor(m => m.Password)
+    @Html.TextBoxFor(m => m.Password)
+    @Html.ValidationMessageFor(m => m.Password)
+    
+    @Html.LabelFor(m => m.SiteName)
+    @Html.TextBoxFor(m => m.SiteName)
+    @Html.ValidationMessageFor(m => m.SiteName)
+ 
+    <p>
+        <input type="submit" value="Create Your Free Demo" class="button radius" />
+    </p>   
+}

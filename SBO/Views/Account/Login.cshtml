@@ -5,13 +5,11 @@
 
 <div class="row">
     <div class="large-6 columns">
-        
-       
-
         <h3>Login</h3>
 
         <p>
-            Creating demos is free and easy. Login below to get started. If you don't have an account yet, @Html.ActionLink("Register Now!", "Register", "Account") 
+            Login to your website using the form below. If you don't have a website yet 
+             @Html.ActionLink("Create One Now!", "Register", "Account") 
         </p>
 
         @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
@@ -30,7 +28,6 @@
             
             <p>
                 <input type="submit" value="Log in" class="button radius" />
-                @Html.ActionLink("Register Now", "Register", "Account", null, new { @class = "button radius secondary" }) 
             </p>
         }
 

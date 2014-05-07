@@ -12,6 +12,21 @@ namespace SBO.BLL
 {
     public class WebsiteBLL
     {
+
+        public static UserWebsiteBO CreateDemo(CreateDemoModel model)
+        {
+            // create new user & log them in
+            int userId = AccountBLL.CreateUserProfile(model.EmailAddress, model.Password);
+            
+            // create new website
+            UserWebsiteBO site = new UserWebsiteBO() { BusinessTypeId = 1, Created = DateTime.Now, Description = "", Roles = SiteRoles.Owner, SiteName = model.SiteName, Type = "TrailerOnline", UserId = userId };
+            site = WebsiteBLL.CreateWebsite(site);
+
+            // return the new site
+            return site;
+        }
+
+
         /// <summary>
         /// Creates a new website 
         /// </summary>
@@ -24,20 +39,11 @@ namespace SBO.BLL
                 throw new Exception("A site with that name already exists");
 
 
-            // There's only one line of business currently
-            BusinessTypeBO type = GetBusinessType(1);
-
-            Website.UserId = WebSecurity.CurrentUserId;
-            Website.Created = DateTime.Now;
-            Website.Roles = SiteRoles.Owner;
-            Website.BusinessTypeId = type.BusinessTypeId;
-            Website.Description = type.Description;
-            Website.Type = type.BusinessType;
-
             // create the website data record
             SiteDO site = Website.GetSiteDataObject();
             site.SiteId = Site.Create(site);
             Website.WebsiteId = site.SiteId;
+
 
             // make the user the owner of the new website
             SiteUsersDO xref = new SiteUsersDO() { Added = DateTime.Now, Roles = SiteRoles.Owner, SiteId = site.SiteId, UserId = Website.UserId };

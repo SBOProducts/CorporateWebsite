@@ -1,37 +1,64 @@
-﻿     
+﻿@model CreateDemoModel
+@section Banner{
+    <img src="@Url.Content("~/Images/Trailer Online Banner.png")" alt="Trailer Online" />
+} 
+
 <div class="hide-for-medium-down">
-    <p>&nbsp;</p>
     <p>&nbsp;</p>
 </div>
 
 <div class="row">
-    <div class="large-6  medium-6  columns">
-        
+    <div class="large-4  medium-4  columns">
+        <h2>Free Demo</h2>
         <p>
-            The best way to know if you will like something is to try it out.
+            The best way to know if you like something is to try it.
+        </p>
+        <p>
+            <em>Create a free 30 day demo using the form below</em>
         </p>
         
-        <h4>Start Your Free Demo</h4>
-        <label>Login</label>
-        <input type="text" />
-        <label>Password</label>
-        <input type="password" />
-        <label>Confirm Passowrd</label>
-        <input type="password" />
-        <label>Site Name</label>
-        <input type="text" />
-        <input type="submit" class="button radius" value="Create Your Free Demo" />
+        
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            @Html.LabelFor(m => m.EmailAddress)
+            @Html.TextBoxFor(m => m.EmailAddress)
+            @Html.ValidationMessageFor(m => m.EmailAddress)
+    
+            @Html.LabelFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password)
+    
+            @Html.LabelFor(m => m.SiteName)
+            @Html.TextBoxFor(m => m.SiteName)
+            @Html.ValidationMessageFor(m => m.SiteName)
+ 
+            <p>
+                <input type="submit" value="Create Your Free Demo" class="button radius" />
+            </p>   
+        }
+
+        <p>
+            Already have a demo? @Html.ActionLink("Login", "Login", "Account")
+        </p>
         
     </div>
-    <div class="large-6  medium-6  columns">
+    <div class="large-8  medium-8 columns">
         <h2>Trailer Online</h2>
         <p>
             Trailer Online is the easiest and most affordable system on the internet for promoting your trailer and equipment intentory online.
         </p>
+        <h4 class="subheader">Key Features</h4>
         <ul>
-            <li></li>
-            <li>Free for the first 30 days</li>
-
+            <li>Easy to learn and simple to use</li>
+            <li>Displays well on all devices including phone, tablet, and desktop</li>
+            <li>Drag and drop image uploading</li>
+            <li>Click and type editing</li>
+            <li>Use your own domain name</li>
+            <li>Free for 30 days</li>
+            <li>Simple Pricing Plans</li>
         </ul>
     </div>
 </div>

@@ -23,7 +23,7 @@
             <img id="Logo" onclick="javascript:location.href='@Url.Action("Index", "Home")';" src="@Url.Content("~/Images/Logo6.png")" alt="Logo" />
         </div>
         <div id="MainNav" class="large-9 columns">
-            
+            @RenderSection("Banner", false)
         </div>
     </div>
         
